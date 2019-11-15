@@ -25,4 +25,6 @@ The goal is to provide a free scientific calculator with functions almost identi
 * Store (STO)	place a number in memory for later use
 * Recall	recover the number from memory for immediate use
 
+# Remarks
 * Created Using Android Studio
+*Java
