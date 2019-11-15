@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        Goh {
+            keyAlias 'CalculatorPlus'
+            keyPassword 'MY_API_KEY'
+            storeFile file('C:/Users/weepi/Desktop/CalculatorPlus/Calculator.jks')
+            storePassword 'MY_API_KEY'
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.gwp.weeping.myapplication"
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 19
+        versionName "1.1.9"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug{
+            buildConfigField 'String',"ApiKey", MY_API_KEY
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.Goh
+            buildConfigField 'String',"ApiKey", MY_API_KEY
+        }
+    }
+    buildToolsVersion '29.0.2'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.fathzer:javaluator:3.0.0'
+    implementation 'com.android.support:cardview-v7:27.1.0'
+    implementation 'com.google.android.gms:play-services-ads:11.8.0'
+    implementation 'com.android.support:design:27.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
